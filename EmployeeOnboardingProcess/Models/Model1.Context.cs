@@ -28,5 +28,6 @@ namespace EmployeeOnboardingProcess.Models
         public virtual DbSet<Educationinfo> Educationinfoes { get; set; }
         public virtual DbSet<Personalinfo> Personalinfoes { get; set; }
         public virtual DbSet<Professionalinfo> Professionalinfoes { get; set; }
+
     }
 }

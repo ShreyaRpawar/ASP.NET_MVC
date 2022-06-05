@@ -1,0 +1,105 @@
+﻿@model EmployeeOnboardingProcess.Models.Personalinfo
+
+@*<div class="bg-success panel-primary text-dark bg-opacity-0">*@
+    @{
+        ViewBag.Title = "Create";
+    }
+
+    <h2>Enter following Information</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        <h3 style="color:blue;">Personal Information</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.Fullname, "Full Name" , htmlAttributes: new { @class = "control-label col-md-10 " })
+                    <div class="col-md-2">
+                            @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form - control " } })
+                    </div>
+                </div>
+                <hr />
+
+
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.Gender, "Gender ", htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form - control" } })
+                    </div>
+                </div>
+                <hr />
+
+
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.Locality_Address, "Local Address", htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Locality_Address, new { htmlAttributes = new { @class = "form - control" } })
+                    </div>
+                </div>
+                <hr />
+
+
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.State_N, "State", htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.State_N, new { HtmlAttributes = new { @class = "form - control" } })
+                    </div>
+                </div>
+                <hr>
+
+
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.City, "City", htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form - control" } })
+                    </div>
+                </div>
+                <hr>
+
+
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.Contactno, "Contact No", htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Contactno, new { htmlAttributes = new { @class = "form - control" } })
+                    </div>
+                </div>
+                <hr />
+
+
+                <hr>
+                <div class="from-group">
+                    @Html.LabelFor(model => model.Emailid, "Email Id", htmlAttributes: new { @class = "control-label col-md-10" })
+                    <div class="col-md-2">
+                        @Html.EditorFor(model => model.Emailid, new { htmlAttributes = new { @class = "form - control" } })
+                    </div>
+                </div>
+                <hr />
+
+
+
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-offset-10 col-md-2">
+
+                        <input type="submit" value="Next" class="btn btn-primary" />
+                    </div>
+                </div>
+                <hr />
+
+            </div>
+        </div>
+     }
+
+
+
+
+
+

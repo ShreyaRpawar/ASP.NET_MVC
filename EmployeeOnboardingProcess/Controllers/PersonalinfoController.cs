@@ -1,5 +1,4 @@
 ﻿using EmployeeOnboardingProcess.Models;
-using EmployeeOnboardingProcess.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,77 +7,43 @@ using System.Web.Mvc;
 
 namespace EmployeeOnboardingProcess.Controllers
 {
-    public class PersonalinfoController : Controller
+    public class PersonalInfoController : Controller
     {
-        OnboardingEntities1 context = new OnboardingEntities1();
+        private readonly OnboardingEntities1 context;
 
-        //private OnboardingEntities1 Context ;
+        public PersonalInfoController(OnboardingEntities1 context )
+        {
+            this.context = context;
+        }
 
-        //public PersonalinfoController(OnboardingEntities1 Context)
-        //{
-        //    this.Context = Context;
-        //}
-
+        // GET: PersonalInfo
         public ActionResult Index()
         {
             return View();
         }
 
-        public  ActionResult Save()
+        public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Save(Personalinfo personalInformation)
+        public ActionResult Create(Personalinfo personalinfo)
         {
-            Personalinfo employeeInDb = new Personalinfo();
-            employeeInDb.EmployeeId = personalInformation.EmployeeId;
-            employeeInDb.Fullname = personalInformation.Fullname;
-            employeeInDb.Gender = personalInformation.Gender;
-            employeeInDb.Locality_Address = personalInformation.Locality_Address;
-            employeeInDb.State_N = personalInformation.State_N;
-            employeeInDb.City = personalInformation.City;
-            employeeInDb.Contactno = personalInformation.Contactno;
-            employeeInDb.Emailid = personalInformation.Emailid;
-            employeeInDb.Passportfilepath = personalInformation.Passportfilepath;
-            employeeInDb.Signaturefilepath = personalInformation.Signaturefilepath;
-            employeeInDb.Adharcardfilepath = personalInformation.Adharcardfilepath;
-            employeeInDb.SSCfilepath = personalInformation.SSCfilepath;
-            employeeInDb.HSCfilepath = personalInformation.HSCfilepath;
-            employeeInDb.Degreefilepath = personalInformation.Degreefilepath;
-            employeeInDb.Resumefilepath = personalInformation.Resumefilepath;
+            try
+            {
+                    context.Personalinfoes.Add(personalinfo);
+                    context.SaveChanges();
+                    TempData["Personalinfo"] = personalinfo;
+                    return RedirectToAction("Create", "Educationalinfo");
+                
+            }
+            catch (Exception )
+            {
+                ModelState.AddModelError(" ", "Unable to save changes, try again or contact coditas@gmail.com");
+            }
 
-            context.Personalinfoes.Add(employeeInDb);
-            context.SaveChanges();
-            return RedirectToAction("Create","Educationalinfo");
-
-            //if (personalInformation.EmployeeId == 0)
-            //    Context.Personalinfoes.Add(personalInformation);
-            //else
-            //{
-            //    var employeeInDb = Context.Personalinfoes.Single(c => c.EmployeeId == personalInformation.EmployeeId);
-            //    employeeInDb.Fullname = personalInformation.Fullname;
-            //    employeeInDb.Gender = personalInformation.Gender;
-            //    employeeInDb.Locality_Address = personalInformation.Locality_Address;
-            //    employeeInDb.State_N = personalInformation.State_N;
-            //    employeeInDb.City = personalInformation.City;
-            //    employeeInDb.Contactno = personalInformation.Contactno;
-            //    employeeInDb.Emailid = personalInformation.Emailid;
-            //    employeeInDb.Passportfilepath = personalInformation.Passportfilepath;
-            //    employeeInDb.Signaturefilepath = personalInformation.Signaturefilepath;
-            //    employeeInDb.Adharcardfilepath = personalInformation.Adharcardfilepath;
-            //    employeeInDb.SSCfilepath = personalInformation.SSCfilepath;
-            //    employeeInDb.HSCfilepath = personalInformation.HSCfilepath;
-            //    employeeInDb.Degreefilepath = personalInformation.Degreefilepath;
-            //    employeeInDb.Resumefilepath = personalInformation.Resumefilepath;
-
-            //}
-
-            //Context.SaveChanges();
-
-
+            return View(personalinfo);
         }
-
     }
 }

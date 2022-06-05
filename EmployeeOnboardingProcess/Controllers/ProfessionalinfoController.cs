@@ -7,15 +7,15 @@ using System.Web.Mvc;
 
 namespace EmployeeOnboardingProcess.Controllers
 {
-    public class ProfessionalinfoController : Controller
+    public class ProfessionalInfoController : Controller
     {
-        private OnboardingEntities1 Context;
+        private readonly OnboardingEntities1 context;
 
-        public ProfessionalinfoController(OnboardingEntities1 Context)
+        public ProfessionalInfoController(OnboardingEntities1 context)
         {
-            this.Context = Context;
+            this.context = context;
         }
-        // GET: Professionalinfo
+
         public ActionResult Index()
         {
             return View();
@@ -27,13 +27,24 @@ namespace EmployeeOnboardingProcess.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Educationinfo EducationInformation)
+        public ActionResult Create(Professionalinfo professionalinfo)
         {
-            Context.Educationinfoes.Add(EducationInformation);
-            Context.SaveChanges();
+            try
+            {    
+                    Personalinfo personalinfo1 = TempData["Personalinfo"] as Personalinfo;
+                    var employeeId = personalinfo1.EmployeeId;
+                    professionalinfo.EmployeeId = employeeId;
 
-            return RedirectToAction("FileUpload ", "FileUpload");
+                    context.Professionalinfoes.Add(professionalinfo);
+                    context.SaveChanges();
+                    return RedirectToAction("UploadFile", "FileUpload");
+            }
+            catch (Exception )
+            {
+                ModelState.AddModelError(" ", "Unable to save changes, try again or contact coditas@gmail.com");
+            }
 
+            return View(professionalinfo);
         }
     }
 }

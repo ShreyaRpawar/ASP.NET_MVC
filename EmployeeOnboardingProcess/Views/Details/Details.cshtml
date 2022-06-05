@@ -1,0 +1,132 @@
+﻿@model EmployeeOnboardingProcess.Model.Details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+
+<h4>Personal Information</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>                Full Name             </th>
+            <th>                Address               </th>
+            <th>                Contact Number        </th>
+            <th>                Email                 </th>
+
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>  @Html.DisplayFor(modelItem => Model.Fullname)      </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Local_Address) </td>
+            <td>  @Html.DisplayFor(modelItem => Model.ContactNo)     </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Emailid)       </td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+<h4>Educational Information</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>                SSC school name             </th>
+            <th>                SSC Percentage              </th>
+            <th>                SSC Passing Year            </th>
+            <th>                HSC College name            </th>
+            <th>                HSC Percentage              </th>
+            <th>                HSC Passing Year            </th>
+            <th>                Degree                      </th>
+            <th>                Degree Percentage           </th>
+            <th>                Degree Passing Year         </th>
+            <th>                University                  </th>
+            <th>                HighestQualification        </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>  @Html.DisplayFor(modelItem => Model.SSC_School_Name)       </td>
+            <td>  @Html.DisplayFor(modelItem => Model.SSC_percentage)        </td>
+            <td>  @Html.DisplayFor(modelItem => Model.SSC_Passing_Year)      </td>
+            <td>  @Html.DisplayFor(modelItem => Model.HSC_College_Name)      </td>
+            <td>  @Html.DisplayFor(modelItem => Model.HSC_percentage)        </td>
+            <td>  @Html.DisplayFor(modelItem => Model.HSC_Passing_Year)      </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Degree)                </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Degree_College_Name)   </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Degree_percentage)     </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Degree_Passing_Year)   </td>
+            <td>  @Html.DisplayFor(modelItem => Model.University)            </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Highest_Qualification) </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Professional Information</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>                WorkExperience            </th>
+            <th>                Company                   </th>
+            <th>                ProjectInfo               </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>  @Html.DisplayFor(modelItem => Model.Work_Experience)   </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Company)           </td>
+            <td>  @Html.DisplayFor(modelItem => Model.Experties)         </td>
+        </tr>
+    </tbody>
+</table>
+
+@*<h5>Documents Information</h5>
+    <body>
+        <table>
+            <tr>
+                <th>     DOCUMENT          </th>
+
+                <th>      RECORD              </th>
+            </tr>
+            <tr>
+                <td>Resume</td>
+                <td style="font-size:150%;font-weight:bold;color:green;">&#10004;</td>
+            </tr>
+
+            <tr>
+                <td>Signaure</td>
+                <td style="font-size:150%;font-weight:bold;color:green;">&#10004;</td>
+            </tr>
+
+            <tr>
+                <td>AdharCard</td>
+                <td style="font-size:150%;font-weight:bold;color:green;">&#10004;</td>
+            </tr>
+
+            <tr>
+                <td>Ssc Result</td>
+                <td style="font-size:150%;font-weight:bold;color:green;">&#10004;</td>
+            </tr>
+
+            <tr>
+                <td>Hsc Result</td>
+                <td style="font-size:150%;font-weight:bold;color:green;">&#10004;</td>
+            </tr>
+
+            <tr>
+                <td>Degree Result </td>
+                <td style="font-size:150%;font-weight:bold;color:green;">&#10004;</td>
+            </tr>
+        </table>
+    </body>*@
+
